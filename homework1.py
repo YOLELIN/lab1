@@ -28,13 +28,14 @@ for index in range(len(my_list)):
 # rejecting the word "Microsoft" and the phrase "This isn't a palindrome". Print the results of these
 # four tests.
 
+# Test those strings
 test_strings = [
     "radar",
     "A man, a plan, a canal, Panama!",
     "Microsoft",
     "This isn't a palindrome"
 ]
-
+# Firstly remove all the spaces and special characters, then check if the string is the same if reversed.
 for test in test_strings:
     clean_test = ''.join(c for c in test if c.isalpha()).lower()
     if clean_test == clean_test[::-1]:
@@ -133,7 +134,7 @@ print(x)
 
 import random
 import string
-
+# Using while loop to make sure the password length is between 8-16.
 def random_password():
     while True:
         length = int(input("Enter the password length (8-16): "))
@@ -141,14 +142,14 @@ def random_password():
             break
         else:
             print("Password length must be between 8 and 16.")
-
+# Let the user decide whether to include special chars
     special_chars = input("Include special characters? (yes/no): ").lower()
-
+# Creat password    
     characters = string.ascii_letters
     characters += string.digits
-
     if special_chars == "yes":
         characters += "!@#$%^&*" 
+        
     password = ''.join(random.choice(characters) for _ in range(length))
     print("Generated password: " + password)
 
@@ -190,7 +191,7 @@ class MovieDatabase:
             return
         movie = random.choice(self.movies)
         print(f"Hi {self.creator_name}, you should watch '{movie['name']}'! It's a {movie['genre']} movie with a rating of {movie['rating']}.")
-
+# Ask user name then provide a movie for user
 username = input("Please enter user name: ")
 my_movie_db = MovieDatabase(username)
 
